@@ -5,7 +5,6 @@
 from pandas import DataFrame, Series
 import pandas as pd
 
-enterNames = ['Jason', 'Johanna']
 columns = ['id', 'Player', 'height', 'weight', 'collage', 'born', 'birth_city', 'birth_state']
 path = '/Users/Jason/NBA_Statistical_Analysis/datasets/Players.csv'
 frame = pd.read_csv(path, names=columns)
