@@ -1,7 +1,7 @@
 # Basic BabyName analysis - Imports NBA stats
 
 # Note - block must be copied into ipython --pylab
-# Note - Currently unsure as to the cause of the dips in 1999 and 2012
+# Note - Years designate year in which a season ended
 
 from pandas import DataFrame, Series
 import pandas as pd
@@ -19,18 +19,27 @@ for col in convCols:
 frame = frame[frame['Tm'] != 'TOT'] # Remove Total rows for players that were with more than one team for a season
 
 teamsList = [17]+[11]+[10]*2+[9]*2+[8]*6+[9]*5+[10]+[12]+[14]*2+[17]*4+[18]*2+[22]*4+[23]*8+[25]+[27]*6+[29]*9+[30]*13
-gamesPlayedList = [60]*18+[82]*50
+gamesPlayedList = [60]*18+[82]*31+[50]+[82]*12+[66]+[82]*5 # Note 50 and 66 game strike shortened seasons
 
 years = range(1980, 2018)
 attemptList = []
+makeList = []
 for year in years:
     attempts = frame.loc[frame['Year'] == year, '3PA'].sum()
+    makes = frame.loc[frame['Year'] == year, '3P'].sum()
     teams = teamsList[year-1950]
     attemptsPerTeam = attempts/teams
+    makesPerTeam = makes/teams
     attemptsPerTeamPerGame = attemptsPerTeam / gamesPlayedList[year-1950]
+    makesPerTeamPerGame = makesPerTeam / gamesPlayedList[year-1950]
     attemptList.append(attemptsPerTeamPerGame)
+    makeList.append(makesPerTeamPerGame)
 
-matplotlib.pyplot.bar(years, attemptList)
+
+p1 = matplotlib.pyplot.bar(years, attemptList)
+p2 = matplotlib.pyplot.bar(years, makeList)
 matplotlib.pyplot.xlabel("Year")
 matplotlib.pyplot.ylabel("3P Attempts Per Game")
 matplotlib.pyplot.title("3P Attempts Per Game by Year")
+matplotlib.pyplot.annotate('Note - Year designates the year\nin which a season ended', xy=(1979, 21))
+matplotlib.pyplot.legend((p1, p2), ('Attempts', 'Makes'))
