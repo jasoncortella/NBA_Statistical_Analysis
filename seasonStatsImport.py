@@ -15,3 +15,4 @@ for col in delCols:
 convCols = ['Year', 'Age', 'G', 'GS', 'MP', 'PER', 'TS%', '3PAr','FTr','ORB%','DRB%','TRB%','AST%','STL%','BLK%','TOV%','USG%','OWS','DWS','WS','WS/48','OBPM','DBPM','BPM','VORP','FG','FGA','FG%','3P','3PA','3P%','2P','2PA','2P%','eFG%','FT','FTA','FT%','ORB','DRB','TRB','AST','STL','BLK','TOV','PF','PTS']
 for col in convCols:
     frame[col] = pd.to_numeric(frame[col])
+frame = frame[frame['Tm'] != 'TOT'] # Remove Total rows for players that were with more than one team for a season
