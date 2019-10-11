@@ -1,4 +1,4 @@
-# Basic BabyName analysis - Imports NBA stats
+# Plots 3 point attempts and makes per year
 
 # Note - block must be copied into ipython --pylab
 # Note - Years designate year in which a season ended
