@@ -1,4 +1,4 @@
-# Basic BabyName analysis - Imports NBA stats
+# Imports NBA stats to dataframe from csv
 
 # Note - block must be copied into ipython --pylab
 
