@@ -1,4 +1,4 @@
-# Basic BabyName analysis - Plots the number of births per year of a specified name
+# Basic BabyName analysis - Imports NBA stats
 
 # Note - block must be copied into ipython --pylab
 
