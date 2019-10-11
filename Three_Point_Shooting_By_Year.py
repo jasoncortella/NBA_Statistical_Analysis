@@ -1,4 +1,4 @@
-# Plots 3 point attempts and makes per year
+# Plots 3 point attempts and makes per year, starting in 1979-1980
 
 # Note - block must be copied into ipython --pylab
 # Note - Years designate year in which a season ended
