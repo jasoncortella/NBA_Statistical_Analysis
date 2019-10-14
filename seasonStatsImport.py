@@ -16,3 +16,7 @@ convCols = ['Year', 'Age', 'G', 'GS', 'MP', 'PER', 'TS%', '3PAr','FTr','ORB%','D
 for col in convCols:
     frame[col] = pd.to_numeric(frame[col])
 frame = frame[frame['Tm'] != 'TOT'] # Remove Total rows for players that were with more than one team for a season
+
+teamsList = [17]+[11]+[10]*2+[9]*2+[8]*6+[9]*5+[10]+[12]+[14]*2+[17]*4+[18]*2+[22]*4+[23]*8+[25]+[27]*6+[29]*9+[30]*13
+gamesPlayedList = [60]*18+[82]*31+[50]+[82]*12+[66]+[82]*5 # Note 50 and 66 game strike shortened seasons
+years = range(1980, 2018)
